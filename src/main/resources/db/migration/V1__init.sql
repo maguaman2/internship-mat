@@ -29,6 +29,38 @@ CREATE TABLE IF NOT EXISTS student
     PRIMARY KEY (id),
     CONSTRAINT fk_career FOREIGN KEY (career_id) REFERENCES career (id)
 );
+-- Fernando
+CREATE TABLE IF NOT EXISTS company
+(
+    id           SERIAL,
+    company_name VARCHAR(150) NOT NULL,
+    ceo          VARCHAR(200) NOT NULL,
+    address      TEXT,
+    province     VARCHAR(100),
+    latitude     DECIMAL(10, 8),
+    longitude    DECIMAL(11, 8),
+    canton       VARCHAR(100),
+    PRIMARY KEY (id)
+);
+--Fernando
+CREATE TABLE IF NOT EXISTS academic_tutor
+(
+    id         SERIAL,
+    tutor_name VARCHAR(150),
+    career_id  INT,
+    PRIMARY KEY (id),
+    FOREIGN KEY (career_id) REFERENCES career (id)
+);
+--Fernando
+CREATE TABLE IF NOT EXISTS company_tutor
+(
+    id         SERIAL,
+    full_name  VARCHAR(150),
+    phone      VARCHAR(100),
+    company_id INT,
+    PRIMARY KEY (id),
+    FOREIGN KEY (company_id) REFERENCES company (id)
+);
 --Elkin
 CREATE TABLE IF NOT EXISTS practice
 (
@@ -44,21 +76,6 @@ CREATE TABLE IF NOT EXISTS practice
     tutor_academic_id INT REFERENCES academic_tutor (id)
 );
 
-
--- Fernando
-CREATE TABLE IF NOT EXISTS company
-(
-    id           SERIAL,
-    company_name VARCHAR(150) NOT NULL,
-    ceo          VARCHAR(200) NOT NULL,
-    address      TEXT,
-    province     VARCHAR(100),
-    latitude     DECIMAL(10, 8),
-    longitude    DECIMAL(11, 8),
-    canton       VARCHAR(100),
-    PRIMARY KEY (id)
-);
-
 --Wilson
 CREATE TABLE IF NOT EXISTS activity
 (
@@ -66,7 +83,7 @@ CREATE TABLE IF NOT EXISTS activity
     description    VARCHAR(250) NOT NULL,
     entrance_hour  DATE         NOT NULL,
     departure_date Date         NOT NULL,
-    total_hours    DECIMAL(5.2) NOT NULL,
+    total_hours    DECIMAL(5,2) NOT NULL,
     resources      TEXT,
     observations   TEXT,
     practice_id    INT          NOT NULL,
@@ -74,25 +91,8 @@ CREATE TABLE IF NOT EXISTS activity
     FOREIGN KEY (practice_id) REFERENCES practice (id)
 );
 
-CREATE TABLE IF NOT EXISTS academic_tutor
-(
-    id         SERIAL,
-    tutor_name VARCHAR(150),
-    career_id  INT,
-    PRIMARY KEY (id),
-    FOREIGN KEY (career_id) REFERENCES career (id)
-);
 
-CREATE TABLE IF NOT EXISTS company_tutor
-(
-    id         SERIAL,
-    full_name  VARCHAR(150),
-    phone      VARCHAR(100),
-    company_id INT,
-    PRIMARY KEY (id),
-    FOREIGN KEY (company_id) REFERENCES company (id)
-);
-
+--Elkin
 CREATE TABLE IF NOT EXISTS eval
 (
     id                SERIAL,
