@@ -15,6 +15,6 @@ class ActivityController @Autowired constructor(
 
     @GetMapping
     fun getActivities(): List<ActivityDTO> {
-        return activityService.getActivities()  
+        return activityService.getActivities()
     }
 }
