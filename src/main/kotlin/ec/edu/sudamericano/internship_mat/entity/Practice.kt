@@ -7,19 +7,19 @@ import java.util.*
 
 @Entity
 @Table(name = "practice")
-data class  Practice {
+class  Practice {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(updatable = false)
     var id: Long? = null
     @Column(nullable = false)
-    var start_date: LocalDateTime,
+    var startDate: LocalDateTime? = null
     @Column(nullable = false)
-    var end_date: LocalDateTime,
+    var endDate: LocalDateTime? = null
     @Column(nullable = false)
-    var office: String,
+    var office: String? = null
     @Column(nullable = false)
-    var level: String,
+    var level: String? = null
     @Column(nullable = false)
-    var academi_Periodic: String,
+    var academiPeriodic: String? = null
 }

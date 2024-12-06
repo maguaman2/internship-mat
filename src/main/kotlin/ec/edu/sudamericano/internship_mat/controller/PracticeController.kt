@@ -26,6 +26,6 @@ class PracticeController {
 
     @PostMapping
     fun save(@RequestBody @Valid practiceDto: PracticeDto): Practice {
-        return practiceService.save(PracticeDto)
+        return practiceService.save(practiceDto)
     }
 }
