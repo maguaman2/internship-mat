@@ -28,9 +28,4 @@ class Activity {
     @Column(name = "observations")
     val observations: String = ""
 
-    @ManyToOne
-    @JoinColumn(name = "practice_id", nullable = false)
-    val practice: Practice = Practice()
-
-    constructor()
 }
