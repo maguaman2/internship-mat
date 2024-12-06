@@ -82,10 +82,10 @@ CREATE TABLE IF NOT EXISTS activity
     id             SERIAL,
     description    VARCHAR(250) NOT NULL,
     entrance_hour  DATE         NOT NULL,
-    departure_date Date         NOT NULL,
+    departure_date DATE         NOT NULL,
     total_hours    DECIMAL(5,2) NOT NULL,
-    resources      TEXT,
-    observations   TEXT,
+    resources      VARCHAR(250) NOT NULL,
+    observations   VARCHAR(250) NOT NULL,
     practice_id    INT          NOT NULL,
     PRIMARY KEY (id),
     FOREIGN KEY (practice_id) REFERENCES practice (id)
