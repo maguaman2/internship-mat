@@ -1,4 +1,4 @@
 package ec.edu.sudamericano.internship_mat.entity
 
-class Model {
+class CompanyTutor {
 }
