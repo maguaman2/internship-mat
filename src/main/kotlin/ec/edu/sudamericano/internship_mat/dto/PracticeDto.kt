@@ -8,10 +8,10 @@ import java.util.*
 data class PracticeDto(
 
     @NotNull(message = "Start date must not be null")
-    var start_date: LocalDateTime? = null,
+    var startdate: LocalDateTime? = null,
 
     @NotNull(message = "End date must not be null")
-    var end_date: LocalDateTime? = null,
+    var enddate: LocalDateTime? = null,
 
     @NotNull(message = "Office must not be null")
     @NotBlank(message = "Office must not be blank")
@@ -23,7 +23,7 @@ data class PracticeDto(
 
     @NotNull(message = "Academic Period must not be null")
     @NotBlank(message = "Academic Period must not be blank")
-    var academi_Periodic: String? = null,
+    var academiPeriodic: String? = null,
 
 
     var id: Long? = null
