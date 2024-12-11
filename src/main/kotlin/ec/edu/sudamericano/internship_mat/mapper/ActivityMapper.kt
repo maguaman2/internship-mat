@@ -17,4 +17,3 @@ class ActivityMapper {
             practiceId = activity.practice.id
         )
     }
-}
