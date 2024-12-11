@@ -2,6 +2,7 @@ package ec.edu.sudamericano.internship_mat.controller
 
 import ec.edu.sudamericano.internship_mat.dto.EvalDto
 import ec.edu.sudamericano.internship_mat.mapper.EvalMapper
+import ec.edu.sudamericano.internship_mat.response.SuccessResponse
 import ec.edu.sudamericano.internship_mat.service.EvalService
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
@@ -14,9 +15,9 @@ class EvalController(
 ) {
 
     @GetMapping
-    fun getAllEvals(): ResponseEntity<List<EvalDto>> {
-        val evals = evalService.getAllEvals()
-        return ResponseEntity.ok(evals.map { evalMapper.toDto(it) })
+    fun getAll(): ResponseEntity<Any> {
+        val coordinators = evalService.getAllEvals()
+        return ResponseEntity.ok(SuccessResponse(data = coordinators))
     }
 
     @GetMapping("/{id}")
