@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController
 @RequestMapping("/api/practice")
 
 class PracticeController 
-/*
+
     @Autowired
     lateinit var practiceService: PracticeService
 
@@ -28,5 +28,4 @@ class PracticeController
     fun save(@RequestBody @Valid practiceDto: PracticeDto): Practice {
         return practiceService.save(practiceDto)
     }
-}
-*/
+

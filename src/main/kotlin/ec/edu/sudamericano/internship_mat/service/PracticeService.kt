@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service
 
 @Service
 class PracticeService
-/*
+
     @Autowired
     lateinit var practiceRepository: PracticeRepository
 
@@ -22,5 +22,3 @@ class PracticeService
         val practice = PracticeMapper.toEntity(practiceDto)
         return practiceRepository.save(practice)
     }
-}
-*/
