@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component
 
 
 @Component
-class CareerCoordinatorMapper {
+object CareerCoordinatorMapper {
     fun toEntity(dto: CareerCoordinatorDTO): CareerCoordinator {
         return CareerCoordinator(
             id = dto.id ?: 0,

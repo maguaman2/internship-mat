@@ -15,12 +15,8 @@ class CareerCoordinatorController (
 ) {
     @GetMapping
     fun getAll(): ResponseEntity<Any> {
-        return try {
             val coordinators = service.getAll()
-            ResponseEntity.ok(SuccessResponse(data = coordinators))
-        } catch (e: Exception) {
-            ResponseEntity.status(500).body(ErrorResponse(message = e.message, code = 500))
-        }
+         return   ResponseEntity.ok(SuccessResponse(data = coordinators))
     }
 
     @GetMapping("/{id}")
@@ -35,12 +31,10 @@ class CareerCoordinatorController (
 
     @PostMapping
     fun create(@RequestBody dto: CareerCoordinatorDTO): ResponseEntity<Any> {
-        return try {
             val createdDto = service.create(dto)
-            ResponseEntity.status(201).body(SuccessResponse(data = createdDto))
-        } catch (e: Exception) {
-            ResponseEntity.status(500).body(ErrorResponse(message = e.message, code = 500))
-        }
+          return  ResponseEntity.status(201).body(SuccessResponse(data = createdDto))
+
+
     }
 
     @PutMapping("/{id}")

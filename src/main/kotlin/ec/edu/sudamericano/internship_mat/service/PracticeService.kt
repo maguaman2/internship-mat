@@ -9,8 +9,8 @@ import org.springframework.stereotype.Service
 
 
 @Service
-class PracticeService {
-
+class PracticeService
+/*
     @Autowired
     lateinit var practiceRepository: PracticeRepository
 
@@ -23,3 +23,4 @@ class PracticeService {
         return practiceRepository.save(practice)
     }
 }
+*/
