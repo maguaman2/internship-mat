@@ -6,13 +6,7 @@ import org.springframework.stereotype.Component
 
 @Component
 class ParameterMapper {
-    fun toParameterDTO(parameter: Parameter): ParameterDTO {
-        return ParameterDTO(
-            id = parameter.id,
-            category = parameter.category,
-            description = parameter.description,
-            grade = parameter.grade,
-            evalId = parameter.eval.id
-        )
+    fun toParameterDTO(parameterDTO: ParameterDTO): Parameter {
+        return Parameter()
     }
 }

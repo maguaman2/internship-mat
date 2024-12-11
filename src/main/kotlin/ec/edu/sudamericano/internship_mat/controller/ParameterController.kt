@@ -13,8 +13,5 @@ class ParameterController @Autowired constructor(
     private val parameterService: ParameterService
 ) {
 
-    @GetMapping
-    fun getParameters(): List<ParameterDTO> {
-        return parameterService.getParameters()
-    }
+
 }

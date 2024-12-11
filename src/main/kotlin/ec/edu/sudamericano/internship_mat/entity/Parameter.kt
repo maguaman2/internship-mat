@@ -18,9 +18,5 @@ class Parameter {
     @Column(name = "grade", nullable = false)
     val grade: Double = 0.0
 
-    @ManyToOne
-    @JoinColumn(name = "eval_id", nullable = false)
-    val eval: Eval = Eval() // Eval es la entidad que representa la tabla `eval`
 
-    constructor()
 }
