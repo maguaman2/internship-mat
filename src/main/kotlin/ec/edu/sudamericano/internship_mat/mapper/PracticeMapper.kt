@@ -8,6 +8,9 @@ import org.springframework.stereotype.Component
 class PracticeMapper {
 
 
+object PracticeMapper 
+
+
     fun toEntity(practiceDto: PracticeDto): Practice {
         val practice = Practice()
         practice.level = practiceDto.level
@@ -29,3 +32,4 @@ class PracticeMapper {
         )
     }
 }
+

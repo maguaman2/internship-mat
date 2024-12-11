@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*
 
 @RestController
 @RequestMapping("/api/practice")
+
 class PracticeController {
 
     @Autowired
@@ -38,4 +39,6 @@ class PracticeController {
             ResponseEntity.status(500).body(ErrorResponse(message = e.message, code = 500))
         }
     }
+
 }
+

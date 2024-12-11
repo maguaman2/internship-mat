@@ -6,6 +6,7 @@ import ec.edu.sudamericano.internship_mat.repository.PracticeRepository
 import org.springframework.stereotype.Service
 
 @Service
+class PracticeService
 class PracticeService(
     private val repository: PracticeRepository,
     private val mapper: PracticeMapper
@@ -41,4 +42,6 @@ class PracticeService(
     fun delete(id: Long) {
         repository.deleteById(id)
     }
+
 }
+

@@ -4,7 +4,7 @@ import ec.edu.sudamericano.internship_mat.dto.ActivityDTO
 import ec.edu.sudamericano.internship_mat.entity.Activity
 import org.springframework.stereotype.Component
 
-class ActivityMapper {
+class ActivityMapper
     fun toActivityDTO(activity: Activity): ActivityDTO {
         return ActivityDTO(
             id = activity.id,
