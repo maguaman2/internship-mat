@@ -1,3 +1,4 @@
+
 package ec.edu.sudamericano.internship_mat.entity
 
 
@@ -9,3 +10,4 @@ class Model {
     @Id
     var id: Long = TODO("initialize me")
 }
+
