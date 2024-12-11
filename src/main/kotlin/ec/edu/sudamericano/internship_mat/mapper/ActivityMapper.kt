@@ -14,7 +14,7 @@ class ActivityMapper {
             totalHours = activity.totalHours,
             resources = activity.resources,
             observations = activity.observations,
-            practiceId = activity.practice.id
+           // practiceId = activity.practice.id
         )
     }
 }
