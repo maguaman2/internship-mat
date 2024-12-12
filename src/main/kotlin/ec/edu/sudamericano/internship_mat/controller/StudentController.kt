@@ -39,6 +39,17 @@ class StudentController(
             .body(SuccessResponse(data = createdStudent))
     }
 
+    @GetMapping("/career/{careerId}")
+    fun getStudentsByCareer(@PathVariable careerId: Int): ResponseEntity<Any> {
+        val students = studentService.getStudentsByCareer(careerId)
+        return if (students.isNotEmpty()) {
+            ResponseEntity.ok(SuccessResponse(data = students))
+        } else {
+            ResponseEntity.status(HttpStatus.NOT_FOUND)
+                .body(FailResponse(data = mapOf("careerId" to careerId)))
+        }
+    }
+
     @ExceptionHandler(Exception::class)
     fun handleException(exception: Exception): ResponseEntity<ErrorResponse> {
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)

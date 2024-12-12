@@ -27,7 +27,9 @@ class StudentService(
         val savedStudent = studentRepository.save(studentEntity)
         return studentMapper.toDTO(savedStudent)
     }
+
+    fun getStudentsByCareer(careerId: Int): List<StudentDTO> {
+        val students = studentRepository.findStudentsByCareerId(careerId)
+        return students.map { studentMapper.toDTO(it) }
+    }
 }
-
-
-
