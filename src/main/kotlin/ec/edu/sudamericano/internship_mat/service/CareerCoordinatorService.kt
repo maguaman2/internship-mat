@@ -32,6 +32,16 @@ class CareerCoordinatorService (
         }
     }
 
+    fun getByName(name: String): List<CareerCoordinatorDTO> {
+        val coordinators = repository.findByNameOrderByIdDesc(name)
+        return coordinators.map { coordinator ->
+            CareerCoordinatorDTO(
+                id = coordinator.id,
+                phoneNumber = coordinator.phoneNumber,
+                coordinatorName = coordinator.coordinatorName
+            )
+        }
+    }
     fun delete(id: Long) {
         repository.deleteById(id)
     }
