@@ -26,4 +26,8 @@ class EvalService(private val evalRepository: EvalRepository) {
         }
         evalRepository.deleteById(id)
     }
+
+    fun getEvalsWithGradeGreaterThan(grade: Double): List<Eval> {
+        return evalRepository.findEvalsWithGradeGreaterThan(grade)
+    }
 }
