@@ -4,19 +4,17 @@ import jakarta.persistence.*
 
 @Entity
 @Table(name = "parameter")
-class Parameter {
+data class ParameterEntity(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: Int = 0
+    val id: Int = 0,
 
-    @Column(name = "category", nullable = false)
-    val category: String = ""
+    @Column(nullable = false)
+    val category: String,
 
-    @Column(name = "description", nullable = false)
-    val description: String = ""
+    @Column(nullable = false)
+    val description: String,
 
-    @Column(name = "grade", nullable = false)
-    val grade: Double = 0.0
-
-
-}
+    @Column(nullable = false, precision = 5, scale = 2)
+    val grade: Double
+)
