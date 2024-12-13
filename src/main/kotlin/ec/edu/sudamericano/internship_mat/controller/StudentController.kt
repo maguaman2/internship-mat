@@ -50,6 +50,18 @@ class StudentController(
         }
     }
 
+    @PatchMapping("/{id}")
+    fun updateStudent(@PathVariable id: Long, @RequestBody studentDTO: StudentDTO): ResponseEntity<Any> {
+        val updatedStudent = studentService.updateStudent(id, studentDTO)
+        return ResponseEntity.ok(SuccessResponse(data = updatedStudent))
+    }
+
+    @DeleteMapping("/{id}")
+    fun deleteStudent(@PathVariable id: Long): ResponseEntity<Any> {
+        studentService.deleteStudent(id)
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).build()
+    }
+
     @ExceptionHandler(Exception::class)
     fun handleException(exception: Exception): ResponseEntity<ErrorResponse> {
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
