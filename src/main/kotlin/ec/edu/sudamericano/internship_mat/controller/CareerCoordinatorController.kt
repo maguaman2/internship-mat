@@ -29,6 +29,13 @@ class CareerCoordinatorController (
         }
     }
 
+
+    @GetMapping("/search")
+    fun getByName(@RequestParam name: String): ResponseEntity<Any> {
+        val coordinators = service.getByName(name)
+        return ResponseEntity.ok(SuccessResponse(data = coordinators))
+    }
+
     @PostMapping
     fun create(@RequestBody dto: CareerCoordinatorDTO): ResponseEntity<Any> {
             val createdDto = service.create(dto)
