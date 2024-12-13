@@ -5,14 +5,10 @@ import ec.edu.sudamericano.internship_mat.service.ParameterService
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
-import org.springframework.beans.factory.annotation.Autowired
 
 @RestController
 @RequestMapping("/parameter")
-class ParameterController {
-
-    @Autowired
-    private lateinit var parameterService: ParameterService
+class ParameterController(private val parameterService: ParameterService) {
 
     @GetMapping
     fun getAllParameters(): ResponseEntity<List<ParameterDto>> =
@@ -27,10 +23,12 @@ class ParameterController {
         ResponseEntity.status(HttpStatus.CREATED).body(parameterService.save(parameterDto))
 
     @PutMapping("/{id}")
-    fun updateParameter(@PathVariable id: Int, @RequestBody parameterDto: ParameterDto): ResponseEntity<ParameterDto> {
-        val updatedParameter = parameterDto.copy(id = id)
-        return ResponseEntity.ok(parameterService.save(updatedParameter))
-    }
+    fun updateParameter(@PathVariable id: Int, @RequestBody parameterDto: ParameterDto): ResponseEntity<ParameterDto> =
+        ResponseEntity.ok(parameterService.update(id, parameterDto))
+
+    @PatchMapping("/{id}")
+    fun updatePartialParameter(@PathVariable id: Int, @RequestBody parameterDto: ParameterDto): ResponseEntity<ParameterDto> =
+        ResponseEntity.ok(parameterService.updatePartial(id, parameterDto))
 
     @DeleteMapping("/{id}")
     fun deleteParameter(@PathVariable id: Int): ResponseEntity<Void> {

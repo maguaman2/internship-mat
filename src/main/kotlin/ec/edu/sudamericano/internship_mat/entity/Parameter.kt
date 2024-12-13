@@ -4,7 +4,7 @@ import jakarta.persistence.*
 
 @Entity
 @Table(name = "parameter")
-data class ParameterEntity(
+data class Parameter(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Int = 0,
@@ -15,6 +15,7 @@ data class ParameterEntity(
     @Column(nullable = false)
     val description: String,
 
-    @Column(nullable = false, precision = 5, scale = 2)
+    // Eliminar la propiedad 'scale' de la columna de tipo Double
+    @Column(nullable = false)
     val grade: Double
 )
