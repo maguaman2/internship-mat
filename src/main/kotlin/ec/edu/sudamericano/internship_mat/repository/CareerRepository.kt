@@ -6,5 +6,4 @@ import org.springframework.stereotype.Repository
 
 @Repository
 interface CareerRepository: JpaRepository<Career, Long> {
-    fun findByCareerCoordinatorId(careerCoordinatorId: Long): List<Career>
 }

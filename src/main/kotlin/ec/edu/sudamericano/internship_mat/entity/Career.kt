@@ -9,11 +9,9 @@ class Career {
     @Id
     var id: Long? = null
 
-    @OneToOne
-    @JoinColumn(name = "coordinator_id", referencedColumnName = "id", nullable = false)
-    var coordinator: CareerCoordinator? = null
-
     @Column(name = "career_name")
     var careerName: String? = null
 
+    @Column(name = "coordinator_id")
+    var coordinatorId: Long? = null
 }

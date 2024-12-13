@@ -32,17 +32,12 @@ class CareerService {
         val careerCoordinator = careerCoordinatorRepository.findById(careerDto.coordinatorId!!).orElseThrow {
             RuntimeException("Career Coordinator with ID ${careerDto.coordinatorId} not found")
         }
-        val career = CareerMapper.toEntity(careerDto, careerCoordinator)
+        val career = CareerMapper.toEntity(careerDto)
         val savedCareer = careerRepository.save(career)
         return CareerMapper.toDto(savedCareer)
     }
 
-    fun getCareerByCareerCoordinator(careerCoordinatorId: Long): List<CareerDto> {
-        careerCoordinatorRepository.findById(careerCoordinatorId).orElseThrow {
-            RuntimeException("Career Coordinator with ID $careerCoordinatorId not found")
-        }
-        return careerRepository.findByCareerCoordinatorId(careerCoordinatorId).map { CareerMapper.toDto(it) }
-    }
+
 }
 
 

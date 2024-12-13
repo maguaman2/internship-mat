@@ -61,18 +61,6 @@ class CareerController {
         }
     }
 
-    @GetMapping("/careerCoordinator/{careerCoordinatorId}")
-    fun getCareerByCareerCoordinator(@PathVariable careerCoordinatorId: Long): ResponseEntity<Any> {
-        return try {
-            val careers = careerService.getCareerByCareerCoordinator(careerCoordinatorId)
-            ResponseEntity.ok(SuccessResponse(status = "success", data = careers))
-        } catch (ex: RuntimeException) {
-            ResponseEntity.status(HttpStatus.NOT_FOUND)
-                .body(ErrorResponse(status = "error", message = "Career Coordinator with ID $careerCoordinatorId not found", code = HttpStatus.NOT_FOUND.value()))
-        } catch (ex: Exception) {
-            ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-                .body(ErrorResponse(status = "error", message = "An unexpected error occurred", code = HttpStatus.INTERNAL_SERVER_ERROR.value()))
-        }
-    }
+
 }
 
