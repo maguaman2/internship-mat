@@ -9,9 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired
 
 @RestController
 @RequestMapping("/parameter")
-class ParameterController @Autowired constructor(
-    private val parameterService: ParameterService
-) {
+class ParameterController {
 
+    @Autowired
+    private lateinit var parameterService: ParameterService
 
 }
