@@ -16,8 +16,8 @@ class EvalController(
 
     @GetMapping
     fun getAll(): ResponseEntity<Any> {
-        val coordinators = evalService.getAllEvals()
-        return ResponseEntity.ok(SuccessResponse(data = coordinators))
+        val evals = evalService.getAllEvals()
+        return ResponseEntity.ok(SuccessResponse(data = evals.map { evalMapper.toDto(it) }))
     }
 
     @GetMapping("/{id}")
@@ -45,4 +45,10 @@ class EvalController(
         evalService.deleteEval(id)
         return ResponseEntity.noContent().build()
     }
-}
+
+    @GetMapping("/grades")
+    fun getEvalsWithGradeGreaterThan(@RequestParam grade: Double): ResponseEntity<Any> {
+        val evals = evalService.getEvalsWithGradeGreaterThan(grade)
+        return ResponseEntity.ok(SuccessResponse(data = evals.map { evalMapper.toDto(it) }))
+    }
+}   
